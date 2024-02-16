@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Website</title>
+    <style>
+    /* Buttons "jazz" and "pop" */
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff; 
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        margin: 0 10px;}
+    .button:hover {
+        background-color: #0056b3;}
+    /* Language buttons */
+    .language-buttons {
+        position: fixed;
+        top: 0;
+        right: 0;
+        margin: 20px;}
+    .language-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-right: 10px;}
+    .language-button:hover {
+        background-color: #0056b3;}
+
+    /* Other */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #121212; 
+        color: #fff;}
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 100px;
+        text-align: center;}
+    .header {
+        padding: 20px;
+        border-radius: 10px;}
+    h1 {
+        margin-bottom: 20px;
+        font-size: 24px;}
+    .theme-toggle {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;}
+    .theme-toggle {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        width: auto; 
+        height: 20px;}
+    .theme-toggle img {
+        margin-right: 0px; }
+    .theme-toggle:hover {
+        background-color: #0056b3;}
+    .footer {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fff;
+        text-align: center;}
+    .footer a {
+        color: #fff;
+        text-decoration: none;}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title" data-lang="ru">Музыкальный сайт</h1>
+            <h1 class="title" data-lang="en" style="display: none;">Music Website</h1>
+            <h1 class="title" data-lang="es" style="display: none;">Sitio de música</h1>
+            <div class="language-buttons">
+                <a href="#" class="language-button" id="ru-btn" draggable="false">ru</a>
+                <a href="#" class="language-button" id="en-btn" draggable="false">en</a>
+                <a href="#" class="language-button" id="es-btn" draggable="false">es</a>
+                <a class="theme-toggle" id="theme-toggle-btn">
+                    <img src="lamp.png" draggable="false"></a>
+            </div>
+            <a href="#" class="button" id="jazz-btn" draggable="false">Джаз</a>
+            <a href="#" class="button" id="pop-btn" draggable="false">Поп</a>
+
+        </div>
+        <div id="music-content">
+        </div>
+        <div class = "footer">
+            <a href = "https://github.com/BoG3mey" id="madedbyabiklink" target = "_blank">Made by abik</a>
+        </div>
+    </div>
+
+    <script>
+    let leng = "ru"
+    let darkModeEnabled = true;
+    document.addEventListener("DOMContentLoaded", function() {
+        const musicContent = document.getElementById('music-content');
+        const madedbyabiklink = document.getElementById('madedbyabiklink')
+
+        document.getElementById('jazz-btn').addEventListener('click', function() {
+            if (leng === 'ru') {
+                musicContent.innerHTML = `
+                    <h2 style="margin-bottom: 20px;" data-lang="ru">Джаз</h2>
+                    <p style="margin-bottom: 20px;" data-lang="ru">Джаз - это жанр музыки, который возник в конце XIX - начале XX века в Соединенных Штатах Америки. Он имеет богатую историю и разнообразные стили, включая ранний джаз, бибоп, свинг, фри-джаз и многие другие.</p>
+                    <h3 style="margin-bottom: 10px;" data-lang="ru">История джаза</h3>
+                    <p style="margin-bottom: 20px;" data-lang="ru">Джаз возник в культурной смеси афроамериканской и европейской музыкальных традиций. Он стал популярным в Новом Орлеане и быстро распространился по всей Америке и за ее пределы.</p>
+                    <h3 style="margin-bottom: 10px;" data-lang="ru">Известные джазовые музыканты</h3>
+                    <ul style="list-style-type: none; margin-bottom: 20px;">
+                        <li data-lang="ru">Луи Армстронг</li>
+                        <li data-lang="ru">Дюк Эллингтон</li>
+                        <li data-lang="ru">Майлз Дэвис</li>
+                        <li data-lang="ru">Джон Колтрейн</li>
+                    </ul>
+                    <h3 style="margin-bottom: 10px;" data-lang="ru">Известные джазовые альбомы</h3>
+                    <ul style="list-style-type: none; margin-bottom: 20px;">
+                        <li data-lang="ru">"Kind of Blue" - Майлз Дэвис</li>
+                        <li data-lang="ru">"A Love Supreme" - Джон Колтрейн</li>
+                        <li data-lang="ru">"Ellington at Newport" - Дюк Эллингтон</li>
+                    </ul>
+                    <h3 style="margin-bottom: 10px;" data-lang="ru">Рекомендованный плейлист Spotify</h3>
+                    <div style="display: flex; justify-content: center;">
+                        <iframe style="border-radius: 12px; width: 80%; max-width: 1200px;" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXbITWG1ZJKYt?utm_source=generator" height="281.6" data-lang="ru" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>`};
+            if (leng === 'en') {
+                musicContent.innerHTML = `
+                    <h2  style="margin-bottom: 20px;" data-lang="en">Jazz</h2>
+                    <p  style="margin-bottom: 20px;" data-lang="en">Jazz is a music genre that originated in the late 19th to early 20th century in the United States. It has a rich history and diverse styles, including early jazz, bebop, swing, free jazz, and many others.</p>
+                    <h3  style="margin-bottom: 10px;" data-lang="en">History of Jazz</h3>
+                    <p style="margin-bottom: 20px;" data-lang="en">Jazz emerged from the cultural mix of African-American and European musical traditions. It became popular in New Orleans and quickly spread throughout America and beyond.</p>
+                    <h3 style="margin-bottom: 10px;" data-lang="en">Famous Jazz Musicians</h3>
+                    <ul style="list-style-type: none; margin-bottom: 20px;">
+                        <li data-lang="en">Louis Armstrong</li>
+                        <li data-lang="en">Duke Ellington</li>
+                        <li data-lang="en">Miles Davis</li>
+                        <li data-lang="en">John Coltrane</li>
+                    </ul>
+                    <h3  style="margin-bottom: 10px;" data-lang="en">Famous Jazz Albums</h3>
+                    <ul  style="list-style-type: none; margin-bottom: 20px;">
+                        <li data-lang="en">"Kind of Blue" - Miles Davis</li>
+                        <li data-lang="en">"A Love Supreme" - John Coltrane</li>
+                        <li data-lang="en">"Ellington at Newport" - Duke Ellington</li>
+                    </ul>
+                    <h3  style="margin-bottom: 10px;" data-lang="en">Recommended Spotify Playlist</h3>
+                    <div style="display: flex; justify-content: center;">
+                        <iframe style="border-radius: 12px; width: 80%; max-width: 1200px;" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXbITWG1ZJKYt?utm_source=generator" height="281.6" data-lang="en" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>`};
+            if (leng === 'es') {
+                musicContent.innerHTML = `
+                    <h2 style="margin-bottom: 20px;" data-lang="es">Jazz</h2>
+                    <p style="margin-bottom: 20px;" data-lang="es">El jazz es un género musical que se originó a finales del siglo XIX o principios del XX en los Estados Unidos. Tiene una rica historia y diversos estilos, que incluyen el jazz temprano, el bebop, el swing, el free jazz y muchos otros.</p>
+                    <h3 style="margin-bottom: 10px;" data-lang="es">Historia del jazz</h3>
+                    <p style="margin-bottom: 20px;" data-lang="es">El jazz surgió de la mezcla cultural de las tradiciones musicales afroamericanas y europeas. Se hizo popular en Nueva Orleans y se extendió rápidamente por toda América y más allá.</p>
+                    <h3 style="margin-bottom: 10px;" data-lang="es">Músicos de jazz famosos</h3>
+                    <ul style="list-style-type: none; margin-bottom: 20px;">
+                        <li data-lang="es">Louis Armstrong</li>
+                        <li data-lang="es">Duke Ellington</li>
+                        <li data-lang="es">Miles Davis</li>
+                        <li data-lang="es">John Coltrane</li>
+                    </ul>
+                    <h3 style="margin-bottom: 10px;" data-lang="es">Álbumes de jazz famosos</h3>
+                    <ul style="list-style-type: none; margin-bottom: 20px;">
+                        <li data-lang="es">"Kind of Blue" - Miles Davis</li>
+                        <li data-lang="es">"A Love Supreme" - John Coltrane</li>
+                        <li data-lang="es">"Ellington at Newport" - Duke Ellington</li>
+                    </ul>
+                    <h3 style="margin-bottom: 10px;" data-lang="es">Lista de reproducción de Spotify recomendada</h3>
+                    <div style="display: flex; justify-content: center;">
+                        <iframe style="border-radius: 12px; width: 80%; max-width: 1200px;" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXbITWG1ZJKYt?utm_source=generator" height="281.6" data-lang="es" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>`}
+    });
+
+        document.getElementById('pop-btn').addEventListener('click', function() {
+            if (leng === 'ru') {
+                musicContent.innerHTML = `
+                    <h2 style="margin-bottom: 20px;" data-lang="ru">Поп</h2>
+                    <p style="margin-bottom: 20px;" data-lang="ru">Поп-музыка - это один из наиболее популярных и коммерчески успешных жанров музыки. Он часто характеризуется простыми мелодиями, заразительными ритмами и запоминающимися текстами песен.</p>
+                    <h3 style="margin-bottom: 10px;" data-lang="ru">История поп-музыки</h3>
+                    <p style="margin-bottom: 20px;" data-lang="ru">Поп-музыка стала популярной в середине XX века и с тех пор продолжает развиваться и влиять на музыкальную культуру по всему миру. Она включает в себя различные стили, такие как поп-рок, электропоп, поп-рэп и другие.</p>
+                    <h3 style="margin-bottom: 10px;" data-lang="ru">Известные поп-музыканты</h3>
+                    <ul style="list-style-type: none; margin-bottom: 20px;">
+                        <li data-lang="ru">Майкл Джексон</li>
+                        <li data-lang="ru">Мадонна</li>
+                        <li data-lang="ru">Бейонсе</li>
+                        <li data-lang="ru">Эд Ширан</li>
+                    </ul>
+                    <h3 style="margin-bottom: 10px;" data-lang="ru">Известные поп-альбомы</h3>
+                    <ul style="list-style-type: none; margin-bottom: 20px;">
+                        <li data-lang="ru">"Thriller" - Майкл Джексон</li>
+                        <li data-lang="ru">"Like a Virgin" - Мадонна</li>
+                        <li data-lang="ru">"Lemonade" - Бейонсе</li>
+                    </ul>
+                    <h3 style="margin-bottom: 10px;" data-lang="ru">Рекомендованный плейлист Spotify</h3>
+                    <div style="display: flex; justify-content: center;">
+                        <iframe style="border-radius: 12px; width: 80%; max-width: 1200px;" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator" height="281.6" data-lang="ru" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>`};
+                if (leng === 'es') {
+                    musicContent.innerHTML = `
+                        <h2 style="margin-bottom: 20px;" data-lang="es">Pop</h2>
+                        <p style="margin-bottom: 20px;" data-lang="es">La música pop es uno de los géneros musicales más populares y comercialmente exitosos. A menudo se caracteriza por melodías simples, ritmos pegadizos y letras de canciones memorables.</p>
+                        <h3 style="margin-bottom: 10px;" data-lang="es">Historia de la música pop</h3>
+                        <p style="margin-bottom: 20px;" data-lang="es">La música pop se hizo popular a mediados del siglo XX y desde entonces ha seguido evolucionando e influyendo en la cultura musical en todo el mundo. Incluye diversos estilos como pop-rock, electropop, pop-rap y otros.</p>
+                        <h3 style="margin-bottom: 10px;" data-lang="es">Músicos pop famosos</h3>
+                        <ul style="list-style-type: none; margin-bottom: 20px;">
+                            <li data-lang="es">Michael Jackson</li>
+                            <li data-lang="es">Madonna</li>
+                            <li data-lang="es">Beyoncé</li>
+                            <li data-lang="es">Ed Sheeran</li>
+                        </ul>
+                        <h3 style="margin-bottom: 10px;" data-lang="es">Álbumes pop famosos</h3>
+                        <ul style="list-style-type: none; margin-bottom: 20px;">
+                            <li data-lang="es">"Thriller" - Michael Jackson</li>
+                            <li data-lang="es">"Like a Virgin" - Madonna</li>
+                            <li data-lang="es">"Lemonade" - Beyoncé</li>
+                        </ul>
+                        <h3 style="margin-bottom: 10px;" data-lang="es">Lista de reproducción de Spotify recomendada</h3>
+                        <div style="display: flex; justify-content: center;">
+                            <iframe style="border-radius: 12px; width: 80%; max-width: 1200px;" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator" height="281.6" data-lang="es" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        </div>`};
+                if (leng === 'en') {
+                    musicContent.innerHTML = `
+                        <h2 style="margin-bottom: 20px;" data-lang="en">Pop</h2>
+                        <p style="margin-bottom: 20px;" data-lang="en">Pop music is one of the most popular and commercially successful music genres. It is often characterized by simple melodies, catchy rhythms, and memorable song lyrics.</p>
+                        <h3 style="margin-bottom: 10px;" data-lang="en">History of Pop Music</h3>
+                        <p style="margin-bottom: 20px;" data-lang="en">Pop music became popular in the mid-20th century and has since continued to evolve and influence musical culture worldwide. It includes various styles such as pop-rock, electropop, pop-rap, and others.</p>
+                        <h3 style="margin-bottom: 10px;" data-lang="en">Famous Pop Musicians</h3>
+                        <ul style="list-style-type: none; margin-bottom: 20px;">
+                            <li data-lang="en">Michael Jackson</li>
+                            <li data-lang="en">Madonna</li>
+                            <li data-lang="en">Beyoncé</li>
+                            <li data-lang="en">Ed Sheeran</li>
+                        </ul>
+                        <h3 style="margin-bottom: 10px;" data-lang="en">Famous Pop Albums</h3>
+                        <ul style="list-style-type: none; margin-bottom: 20px;">
+                            <li data-lang="en">"Thriller" - Michael Jackson</li>
+                            <li data-lang="en">"Like a Virgin" - Madonna</li>
+                            <li data-lang="en">"Lemonade" - Beyoncé</li>
+                        </ul>
+                        <h3 style="margin-bottom: 10px;" data-lang="en">Recommended Spotify Playlist</h3>
+                        <div style="display: flex; justify-content: center;">
+                            <iframe style="border-radius: 12px; width: 80%; max-width: 1200px;" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator" height="281.6" data-lang="en" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        </div>`}
+        });
+    });
+    // Language Buttons
+    document.getElementById('ru-btn').addEventListener('click', function() {
+        document.querySelectorAll('[data-lang="ru"]').forEach(function(el) {
+            el.style.display = 'block';
+            document.getElementById('jazz-btn').textContent = 'Джаз';
+            document.getElementById('pop-btn').textContent = 'Поп';
+            leng = "ru"
+        });
+        document.querySelectorAll('[data-lang="en"]').forEach(function(el) {
+            el.style.display = 'none';
+        });
+        document.querySelectorAll('[data-lang="es"]').forEach(function(el) {
+            el.style.display = 'none';
+        });
+    });
+
+    document.getElementById('en-btn').addEventListener('click', function() {
+        document.querySelectorAll('[data-lang="ru"]').forEach(function(el) {
+            el.style.display = 'none';
+        });
+        document.querySelectorAll('[data-lang="en"]').forEach(function(el) {
+            el.style.display = 'block';
+            document.getElementById('jazz-btn').textContent = 'Jazz';
+            document.getElementById('pop-btn').textContent = 'Pop';
+            leng = "en"
+        });
+        document.querySelectorAll('[data-lang="es"]').forEach(function(el) {
+            el.style.display = 'none';
+        });
+    });
+
+    document.getElementById('es-btn').addEventListener('click', function() {
+        document.querySelectorAll('[data-lang="ru"]').forEach(function(el) {
+            el.style.display = 'none';
+        });
+        document.querySelectorAll('[data-lang="en"]').forEach(function(el) {
+            el.style.display = 'none';
+        });
+        document.querySelectorAll('[data-lang="es"]').forEach(function(el) {
+            el.style.display = 'block';
+            document.getElementById('jazz-btn').textContent = 'Jazz';
+            document.getElementById('pop-btn').textContent = 'Pop';
+            leng = "es"
+        });
+    });
+    document.getElementById('theme-toggle-btn').addEventListener('click', function() {
+    if (darkModeEnabled) {
+        document.body.style.backgroundColor = "#fff"; 
+        document.body.style.color = '#121212';
+        madedbyabiklink.style.color = '#121212';
+        darkModeEnabled = false;} 
+    else {
+        document.body.style.backgroundColor = '#121212'; 
+        document.body.style.color = '#fff';
+        madedbyabiklink.style.color = '#fff';
+        darkModeEnabled = true;}})
+    </script>
+    </body>
+</html>
