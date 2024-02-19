@@ -9,11 +9,8 @@ This is a simple music website showcasing jazz and pop genres. Users can toggle 
 - **Information Display**: Provides historical information about the selected genre, famous musicians, famous albums, and recommended Spotify playlists.
 
 ## Usage
-1. Clone the repository: `git clone https://github.com/your-username/your-repository.git`
-2. Open `index.html` in your web browser.
-
+1. Download the files: Download the files `index.html` and `lamp.png` from the repository.
+2. Open your browser: Launch any web browser on your computer.
+3. Open `index.html`: In your browser, open the `index.html` file you downloaded in step 1.
 ## Credits
 This project is created by [abik](https://github.com/BoG3mey).
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
