@@ -9,8 +9,8 @@ This is a simple music website showcasing jazz and pop genres. Users can toggle 
 - **Information Display**: Provides historical information about the selected genre, famous musicians, famous albums, and recommended Spotify playlists.
 
 ## Usage
-1. Download the files: Download the files `index.html` and `lamp.png` from the repository.
+1. Download the files: Download the files `yes.html` and `lamp.png` from the repository.
 2. Open your browser: Launch any web browser on your computer.
-3. Open `index.html`: In your browser, open the `index.html` file you downloaded in step 1.
+3. Open `yes.html`: In your browser, open the `yes.html` file you downloaded in step 1.
 ## Credits
 This project is created by [abik](https://github.com/BoG3mey).
