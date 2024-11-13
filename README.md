@@ -13,4 +13,4 @@ This is a simple music website showcasing jazz and pop genres. Users can toggle 
 2. Open your browser: Launch any web browser on your computer.
 3. Open `yes.html`: In your browser, open the `yes.html` file you downloaded in step 1.
 ## Credits
-This project is created by [abik](https://github.com/BoG3mey).
+This project is created by [abik](https://github.com/abi4ka).
